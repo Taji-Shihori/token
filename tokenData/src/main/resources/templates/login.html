@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head('ログイン',~{::link},~{::script})">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script></script>
+</head>
+<body>
+	<div th:replace="common :: header"></div>
+	<div id="back-image"></div>
+	
+	<div id="login">
+	<h1>ログイン</h1>
+	<p>メールアドレスとパスワードを入力してください。</p>
+	<form th:action="@{/loginok}" method="post">
+	<dl>
+		<dt>メールアドレス</dt>
+		<dd><input type="text" name="usermail"></dd>
+		<dt>パスワード</dt>
+		<dd><input type="password" name="password"></dd>
+	</dl>
+	<input type="submit" value="ログイン">
+	</form>
+	</div>
+	
+	<div th:replace="common :: footer"></div>
+</body>	
+</html>

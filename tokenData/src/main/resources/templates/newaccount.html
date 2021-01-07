@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head('新規登録',~{::link},~{::script})">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script></script>
+</head>
+<body>
+	<div th:replace="common :: header"></div>
+	<div id="back-image"></div>
+
+<div id="sign">
+<h1>新規登録</h1>
+<p>下記を入力してください。<br>
+	*印は必須項目です。</p>
+<form th:action="@{/newAccountTest}" method="post">
+<dl>
+	<dt>*姓</dt>
+	<dd><input type="text" name="username1" required></dd>
+	<dt>*名</dt>
+	<dd><input type="text" name="username2" required></dd>
+	<dt>*姓(ふりがな)</dt>
+	<dd><input type="text" name="userfuri1" required></dd>
+	<dt>*名(ふりがな)</dt>
+	<dd><input type="text" name="userfuri2" required></dd>
+	<dt>*メールアドレス</dt>
+	<dd><input type="email" name="usermail" required></dd>
+	<dt>*パスワード</dt>
+	<dd><input type="password" name="userpass" required></dd>
+	<dt>生年月日(YYYY/MM/DD)</dt>
+	<dd><input type="text" name="userbirth"></dd>
+	<dt>血液型</dt>
+	<dd><input type="radio" name="userbtype" value="A型">A型
+		<input type="radio" name="userbtype" value="B型">B型
+		<input type="radio" name="userbtype" value="O型">O型
+		<input type="radio" name="userbtype" value="AB型">AB型</dd>
+	<dt>電話番号(ハイフンなし)</dt>
+	<dd><input type="tel" pattern="[\d-]*" name="usertel"></dd>
+	<dt>郵便番号</dt>
+	<dd><input type="text" name="yubin" onKeyUp="AjaxZip3.zip2addr(this,'','useradress1','useradress2');"></dd>
+	<dt>住所(県)</dt>
+	<dd><select name="useradress1">
+		<option value="東京都">東京</option>
+		<option value="千葉県">千葉</option>
+		<option value="埼玉県">埼玉</option>
+		<option value="兵庫県">兵庫</option>
+		</select></dd>
+	<dt>住所(県以下)</dt>
+	<dd><input type="text" name="useradress2"></dd>
+</dl>
+<input type="reset" value="リセット">
+<input type="submit" value="次へ">
+</form>
+</div>
+
+<div th:replace="common :: footer"></div>
+</body>
+</html>

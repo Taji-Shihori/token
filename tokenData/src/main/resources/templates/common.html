@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title,links,scripts)">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<title th:text="${title}+' | TOKENRANBU'">各ページタイトル　-TOKENRANBU-</title>
+
+<th:block th:replace="${links} ?: _" />
+<th:block th:replace="${scripts} ?: _" />
+</head>
+<body>
+	<header th:fragment="header">
+		<h1><a th:href="@{/top}">TOKENRANBU</a></h1>
+	<nav id="sub">
+		<ul>
+			<li><a th:href="@{/top}">TOP</a></li>
+			<li><a th:href="@{/login}">LOGIN</a></li>
+			<li><a th:href="@{/newaccount}">SIGN UP</a></li>
+		</ul>
+	</nav>
+	</header>
+
+	<footer th:fragment="footer">
+
+		<p>(c)copy right</p>
+
+	</footer>
+
+</body>
+</html>

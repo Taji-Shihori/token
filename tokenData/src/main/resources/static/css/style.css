@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background-color: #e6e6e6;
+
+   display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+
+/*刀剣画像の設定*/
+.thumbnail{
+	width: 200px;
+	height: 280px;
+
+}
+
+/*トップ画像の背景設定*/
+#back-image{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	height: 720px;
+	max-width: 100%;
+	background-image:url("../img/haikei.png");
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+/*ヘッダー、フッダー、ナビの設定*/
+header {
+    width: 100%;
+    padding: 30px 4% 10px;
+	position: fixed;
+	top: 0;
+	background-color: #fff !important;
+	display: flex;
+	align-items: center;
+}
+
+h1 {
+   margin: 0;
+   padding: 0;
+   font-size: 20px;
+}
+#welcome{
+	font-size: 14px;
+}
+
+a {
+   text-decoration: none;
+   color: #4b4b4b;
+}
+
+/*ハンバーガーメニュー下準備*/
+.menubtn{
+    width:100%;
+    max-width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+}
+.w{
+    max-width:1000px;
+    margin: 0 auto;
+}
+#log{
+    background-color:#fff;
+    padding:20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 60px;
+}
+#log ul{
+	list-style: none;
+}
+
+#sub {
+	position: absolute;
+	right: 10px;
+   	padding: 0;
+}
+
+#sub ul {
+   list-style: none;
+   margin: 0;
+   display: flex;
+}
+
+#sub li {
+   margin: 0 0 0 15px;
+   font-size: 14px;
+}
+
+
+/*トップへ戻るボタンの設定*/
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+/* morelinkボタンのスタイル（お好みで） */
+.morelink{
+    display:block;
+    max-width:240px;
+    margin:20px auto;
+    padding:10px 20px;
+    background:#ff9900;
+    border:2px solid #fff;
+    color:#fff;
+    text-align:center;
+    border-radius:5px;
+    position:absolute;
+    bottom: 100;
+  	right: 0;
+  	left: 0;
+}
+.morelink:hover{
+    cursor:pointer;
+    border:2px solid #ff9900;
+    background:#fff;
+    color:#ff9900;
+}
+/*ログイン画面の設定*/
+#login{
+	text-align: center;
+}
+#login h1{
+	padding:10px 0 0 0;
+}
+#login form{
+	padding:0 470px;
+}
+#login form dl dt{
+	width: 130px;
+  	padding:10px 0;
+  	float:left;
+  	clear:both;
+}
+#login form dl dd{
+  	padding:10px 0;
+}
+
+/*新規登録画面の設定*/
+#sign{
+	text-align: center;
+	list-style: none;
+}
+#sign h1{
+	padding:10px 0 0 0;
+}
+#sign form{
+	padding:0 420px;
+}
+#sign form dl dt{
+	text-align:left;
+	width: 200px;
+  	padding:10px 0;
+  	float:left;
+  	clear:both;
+}
+#sign form dl dd{
+  	padding:10px 0;
+}
+
+/*新規登録確認画面の設定*/
+
+#signchek h1{
+	text-align: center;
+	padding:10px 0 0 0;
+}
+#signchek form{
+	padding:0 420px;
+	padding-left:500px;
+}
+#signchek form dl dt{
+	text-align:left;
+	width: 200px;
+  	padding:10px 0;
+  	float:left;
+  	clear:both;
+}
+#signchek form dl dd{
+	text-align:left;
+  	padding:10px 0;
+}
+#signchek form a{
+	padding-left:130px;
+}
+
+/*新規登録完了画面の設定*/
+#sighok{
+	text-align: center;
+}
+

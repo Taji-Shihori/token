@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head('キャラクター一覧',~{::link},~{::script})">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script></script>
+</head>
+<body>
+	<div th:replace="common2 :: header2"></div>
+	<div id="back-image"></div>
+	<main>
+	<div id="charaTop"></div>
+<h2>キャラクター一覧</h2>
+
+
+<p>画像をクリックすると詳細ページに飛びます。</p>
+
+<form th:action="@{/}" method=post>
+<input type="text" name="search" placeholder="キーワードを入力">
+<select size="1" name="search2" >
+	<option value="null">-刀種-</option>
+	<option value="1">短刀</option>
+	<option value="2">脇差</option>
+	<option value="3">打刀</option>
+	<option value="4">太刀</option>
+	<option value="5">大太刀</option>
+	<option value="6">槍</option>
+	<option value="7">薙刀</option>
+	<option value="8">剣</option>
+</select>
+<select size="1" name="search3" >
+	<option value="null">-刀派-</option>
+	<option value="1">なし</option>
+	<option value="2">三条</option>
+	<option value="3">粟田口</option>
+	<option value="4">青江</option>
+	<option value="5">来</option>
+	<option value="6">村正</option>
+	<option value="7">貞宗</option>
+	<option value="8">左文字</option>
+	<option value="9">堀川</option>
+	<option value="10">江</option>
+	<option value="11">虎徹</option>
+	<option value="12">兼定</option>
+	<option value="13">三池</option>
+	<option value="14">古備前</option>
+</select>
+<select size="1" name="search4" >
+	<option value="null">-レア度-</option>
+	<option value="1">★</option>
+	<option value="2">★★</option>
+	<option value="3">★★★</option>
+	<option value="4">★★★★</option>
+	<option value="5">★★★★★</option>
+</select>
+<select size="1" name="search5" >
+	<option value="null">-声優-</option>
+	<option value="1">鳥海 浩輔</option>
+	<option value="7">宮下 栄治</option>
+	<option value="15">浪川 大輔</option>
+	<option value="3">間島 淳司</option>
+	<option value="4">山下 大輝</option>
+	<option value="16">小野 友樹</option>
+	<option value="5">井口 祐一</option>
+	<option value="6">櫻井 トオル</option>
+	<option value="9">髙橋 孝治</option>
+	<option value="10">村瀬 歩</option>
+	<option value="2">増田 俊樹</option>
+	<option value="14">石川 界人</option>
+	<option value="11">榎木 淳弥</option>
+	<option value="13">興津 和幸</option>
+	<option value="17">泰 勇気</option>
+	<option value="19">津田 健次郎</option>
+	<option value="20">浜田 賢二</option>
+	<option value="21">野島 裕史</option>
+	<option value="12">広瀬 裕也</option>
+	<option value="22">阿座上 洋平</option>
+	<option value="18">松田 健一郎</option>
+	<option value="8">下野 紘</option>
+</select>
+<select size="1" name="search6" >
+	<option value="null">-絵師-</option>
+	<option value="1">沙汰</option>
+	<option value="2">汲田</option>
+	<option value="3">べっこ</option>
+	<option value="4">彦</option>
+	<option value="5">源覚</option>
+	<option value="6">キナコ</option>
+	<option value="7">猫缶まっしぐら</option>
+	<option value="8">⑪</option>
+	<option value="9">鈴木次郎</option>
+	<option value="10">白峰</option>
+	<option value="11">煮たか</option>
+	<option value="12">新井テル子</option>
+	<option value="13">ホームラン・拳</option>
+	<option value="14">三輪士郎</option>
+	<option value="15">小宮国春</option>
+	<option value="16">ウエハラ蜂</option>
+	<option value="17">minato</option>
+</select><br>
+<input type="reset" value="リセット">
+<input type="submit" value="検索">
+</form>
+
+<form action="/token/SortServlet" method=post>
+<input type="radio" name="namesort" value=namesort>名前順
+<input type="radio" name="tochosort" value=tochosort>刀帳順
+<input type="radio" name="raresort1" value=raresort1>レア度順(高)
+<input type="radio" name="raresort2" value=raresort2>レア度順(低)
+<br>
+<input type="reset" value="リセット">
+<input type="submit" value="並べ替え">
+</form>
+
+<table id="tokenTable">
+    <tr>
+      <th>NO</th>
+      <th>刀帳番号</th>
+      <th>画像</th>
+      <th>名前</th>
+      <th>ふりがな</th>
+      <th>刀種</th>
+      <th>刀派</th>
+      <th>レア度</th>
+      <th>声優</th>
+      <th>絵師</th>
+    </tr>
+
+    <tr class="token" th:each="chara : ${charList}" th:object="${chara}">
+      <td th:text="*{id}"></td>
+      <td th:text="*{bang}"></td>
+      <td><a th:href="@{/}"><img th:src="*{image.path}"></a></td>
+      <td th:text="*{charName}"></td>
+      <td th:text="*{charFuri}"></td>
+      <td th:text="*{tosyu.tosyuName}"></td>
+      <td th:text="*{toha.tohaName}"></td>
+      <td th:text="*{rare.stars}"></td>
+	  <td th:text="*{seiyu.seiyuName}"></td>
+      <td th:text="*{eshi.eshiName}"></td>
+    </tr>
+
+  </table>
+
+
+<div id="page_top"><a></a></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script th:inline="javascript">
+</script>
+
+<p><a th:href="@{/top}">戻る</a></p>
+	</main>
+	<div th:replace="common :: footer"></div>
+</body>	
+</html>

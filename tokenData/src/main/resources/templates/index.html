@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head('top',~{::link},~{::script})">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script></script>
+</head>
+<body>
+	<div th:replace="common :: header"></div>
+	<div id="back-image"></div>
+	<main>
+	コンテンツ
+	</main>
+	<div th:replace="common :: footer"></div>
+</body>	
+</html>
