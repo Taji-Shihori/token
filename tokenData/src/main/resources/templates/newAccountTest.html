@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head('新規登録',~{::link},~{::script})">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<script></script>
+</head>
+<body>
+	<div th:replace="common :: header"></div>
+	<div id="back-image"></div>
+
+<div id="sign">
+<h1>新規登録</h1>
+<p>下記を入力してください。<br>
+	*印は必須項目です。</p>
+<form th:action="@{/newAccountok}" th:method="post">
+<dl>
+	<dt>*姓</dt>
+	<dd><span th:text="${session.username1}"></span></dd>
+	<dt>*名</dt>
+	<dd><span th:text="${session.username2}"></span></dd>
+	<dt>*姓(ふりがな)</dt>
+	<dd><span th:text="${session.userfuri1}"></span></dd>
+	<dt>*名(ふりがな)</dt>
+	<dd><span th:text="${session.userfuri2}"></span></dd>
+	<dt>*メールアドレス</dt>
+	<dd><span th:text="${session.usermail}"></span></dd>
+	<dt>*パスワード</dt>
+	<dd><span th:text="${session.userpass}"></span></dd>
+	<dt>生年月日(YYYY/MM/DD)</dt>
+	<dd><span th:text="${session.userbirth}"></span></dd>
+	<dt>血液型</dt>
+	<dd><span th:text="${session.userbtype}"></span></dd>
+	<dt>電話番号(ハイフンなし)</dt>
+	<dd><span th:text="${session.usertel}"></span></dd>
+	<dt>郵便番号</dt>
+	<dd><span th:text="${session.yubin}"></span></dd>
+	<dt>住所(県)</dt>
+	<dd><span th:text="${session.useradress1}"></span></dd>
+	<dt>住所(県以下)</dt>
+	<dd><span th:text="${session.useradress2}"></span></dd>
+</dl>
+<button onclick="history.back()">戻る</button>
+<input type="submit" value="次へ">
+</form>
+</div>
+
+<div th:replace="common :: footer"></div>
+</body>
+</html>

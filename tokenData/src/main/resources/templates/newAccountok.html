@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head('ログイン',~{::link},~{::script})">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<div th:replace="common2 :: header2"></div>
+	<div id="back-image"></div>
+	
+	<div id="sighok">
+	<p>登録が完了しました。</p>
+	<p>ようこそ</p>
+	<span th:text="${session.account.username1}"></span>
+	<span th:text="${session.account.username2}"></span>
+	さん。
+	<a th:href="@{/}">会員ページへ</a><br>
+	<a th:href="@{/}">TOPへ</a>
+	</div>
+
+	<div th:replace="common :: footer"></div>
+</body>	
+</html>
