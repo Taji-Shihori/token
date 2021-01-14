@@ -3,7 +3,7 @@
 <head th:replace="common :: head('新規登録',~{::link},~{::script})">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" th:href="@{/css/style.css}" />
-	<script></script>
+	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 <body>
 	<div th:replace="common :: header"></div>
@@ -13,40 +13,54 @@
 <h1>新規登録</h1>
 <p>下記を入力してください。<br>
 	*印は必須項目です。</p>
-<form th:action="@{/newAccountTest}" method="post">
+<table>
+	<tr th:if="${validationError}" th:each="error:${validationError}">
+		<td style="color:red;" th:text="${error}"></td>
+	</tr>
+</table>
+<form action="#" th:action="@{/newAccountTest}" th:object="${newAccountRequest}" method="post">
 <dl>
 	<dt>*姓</dt>
-	<dd><input type="text" name="username1" required></dd>
+	<dd><input type="text" id="username1" name="{username1}" th:field="*{username1}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('username1')}" th:errors="*{username1}"></dd>
 	<dt>*名</dt>
-	<dd><input type="text" name="username2" required></dd>
+	<dd><input type="text" id="username2" name="{username2}" th:field="*{username2}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('username2')}" th:errors="*{username2}"></dd>
 	<dt>*姓(ふりがな)</dt>
-	<dd><input type="text" name="userfuri1" required></dd>
+	<dd><input type="text" id="userfuri1" name="{userfuri1}" th:field="*{userfuri1}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('userfuri1')}" th:errors="*{userfuri1}"></dd>
 	<dt>*名(ふりがな)</dt>
-	<dd><input type="text" name="userfuri2" required></dd>
+	<dd><input type="text" id="userfuri2" name="{userfuri2}" th:field="*{userfuri2}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('userfuri2')}" th:errors="*{userfuri2}"></dd>
 	<dt>*メールアドレス</dt>
-	<dd><input type="email" name="usermail" required></dd>
+	<dd><input type="email" id="usermail" name="{usermail}" th:field="*{usermail}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('username1')}" th:errors="*{usermail}"></dd>
 	<dt>*パスワード</dt>
-	<dd><input type="password" name="userpass" required></dd>
+	<dd><input type="password" id="userpass" name="{userpass}" th:field="*{userpass}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('userpass')}" th:errors="*{userpass}"></dd>
 	<dt>生年月日(YYYY/MM/DD)</dt>
-	<dd><input type="text" name="userbirth"></dd>
+	<dd><input type="text" id="userbirth" name="{userbirth}" th:field="*{userbirth}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('userbirth')}" th:errors="*{userbirth}"></dd>
 	<dt>血液型</dt>
-	<dd><input type="radio" name="userbtype" value="A型">A型
-		<input type="radio" name="userbtype" value="B型">B型
-		<input type="radio" name="userbtype" value="O型">O型
-		<input type="radio" name="userbtype" value="AB型">AB型</dd>
+	<dd><input type="radio" name="{userbtype}" th:field="*{userbtype}" value="A型">A型
+		<input type="radio" name="{userbtype}" th:field="*{userbtype}" value="B型">B型
+		<input type="radio" name="{userbtype}" th:field="*{userbtype}" value="O型">O型
+		<input type="radio" name="{userbtype}" th:field="*{userbtype}" value="AB型">AB型</dd>
 	<dt>電話番号(ハイフンなし)</dt>
-	<dd><input type="tel" pattern="[\d-]*" name="usertel"></dd>
+	<dd><input type="tel" id="usertel" name="{usertel}" th:field="*{usertel}"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('usertel')}" th:errors="*{usertel}"></dd>
 	<dt>郵便番号</dt>
-	<dd><input type="text" name="yubin" onKeyUp="AjaxZip3.zip2addr(this,'','useradress1','useradress2');"></dd>
+	<dd><input type="text" id="yubin" name="{yubin}" th:field="*{yubin}" th:onkeyup="AjaxZip3.zip2addr(this,'','useradress1','useradress2');"></dd>
+	<dd class="error" th:if="${#fields.hasErrors('yubin')}" th:errors="*{yubin}"></dd>
 	<dt>住所(県)</dt>
-	<dd><select name="useradress1">
+	<dd><select id="useradress1" name="{useradress1}" th:field="*{useradress1}">
 		<option value="東京都">東京</option>
 		<option value="千葉県">千葉</option>
 		<option value="埼玉県">埼玉</option>
 		<option value="兵庫県">兵庫</option>
 		</select></dd>
 	<dt>住所(県以下)</dt>
-	<dd><input type="text" name="useradress2"></dd>
+	<dd><input type="text" id="useradress2" name="{useradress2}" th:field="*{useradress2}"></dd>
 </dl>
 <input type="reset" value="リセット">
 <input type="submit" value="次へ">

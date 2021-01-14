@@ -203,6 +203,9 @@ a {
 #sign form dl dd{
   	padding:10px 0;
 }
+#sign .error{
+	color:red;
+}
 
 /*新規登録確認画面の設定*/
 

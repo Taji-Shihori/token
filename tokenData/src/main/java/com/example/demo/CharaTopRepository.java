@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CharaTopRepository extends JpaRepository<Chara,Long> {
-	List<Chara> findAllByOrderByIdDesc();
+	List<Chara> findAllByOrderByBangAsc();
+	List<Chara> findAllByOrderByCharFuriAsc();
+	List<Chara> findAllByOrderByRareDesc();
+	List<Chara> findAllByOrderByRareAsc();
 
 }

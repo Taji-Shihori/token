@@ -102,7 +102,7 @@
 <input type="submit" value="検索">
 </form>
 
-<form action="/token/SortServlet" method=post>
+<form th:action="@{/sort}" method=post>
 <input type="radio" name="namesort" value=namesort>名前順
 <input type="radio" name="tochosort" value=tochosort>刀帳順
 <input type="radio" name="raresort1" value=raresort1>レア度順(高)
