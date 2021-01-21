@@ -302,41 +302,9 @@ $(function(){
 
   </table>
 
-
 <div id="page_top"><a></a></div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script th:inline="javascript">
-$(function() {
-	  // 「TOPに戻る」ボタンがクリックされた時の動きを指定します。
-	  $("#page_top").click(function() {
-	    // ページの一番上までスクロールさせます。
-	    $('body, html').scrollTop(700);
-	  });
-	  $(window).scroll(function() {
-		    // 「TOPに戻る」ボタンを取得します。
-		    var $toTopButton = $('#page_top');
-
-		    // 縦にどれだけスクロールしたかを取得します。
-		    var scrollTop = $(this).scrollTop();
-
-		    // ウィンドウの縦幅を取得します。
-		    var windowHeight = $(this).height();
-
-		    if (scrollTop >= windowHeight) {
-		      // ウィンドウの縦幅以上にスクロールしていた場合、
-		      // 「TOPに戻る」ボタンを表示します。
-		      $toTopButton.show();
-		    } else {
-		      // ウィンドウの縦幅以上にスクロールしていない場合、
-		      // 「TOPに戻る」ボタンを隠します。
-		      $toTopButton.hide();
-		    }
-		  });
-	});
-</script>
-
-<div><a th:href="@{/top}">戻る</a></div>
+<p><a th:href="@{/top}">戻る</a></p>
 	</main>
 	<div th:replace="common :: footer"></div>
 </body>	

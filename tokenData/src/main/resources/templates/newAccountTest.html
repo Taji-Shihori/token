@@ -16,30 +16,42 @@
 <form th:action="@{/newAccountok}" th:method="post">
 <dl>
 	<dt>*姓</dt>
-	<dd><span th:text="${session.username1}"></span></dd>
+	<dd><span th:text="${newAccountRequest.username1}"></span></dd>
 	<dt>*名</dt>
-	<dd><span th:text="${session.username2}"></span></dd>
+	<dd><span th:text="${newAccountRequest.username2}"></span></dd>
 	<dt>*姓(ふりがな)</dt>
-	<dd><span th:text="${session.userfuri1}"></span></dd>
+	<dd><span th:text="${newAccountRequest.userfuri1}"></span></dd>
 	<dt>*名(ふりがな)</dt>
-	<dd><span th:text="${session.userfuri2}"></span></dd>
+	<dd><span th:text="${newAccountRequest.userfuri2}"></span></dd>
 	<dt>*メールアドレス</dt>
-	<dd><span th:text="${session.usermail}"></span></dd>
+	<dd><span th:text="${newAccountRequest.usermail}"></span></dd>
 	<dt>*パスワード</dt>
-	<dd><span th:text="${session.userpass}"></span></dd>
+	<dd><span th:text="${newAccountRequest.userpass}"></span></dd>
 	<dt>生年月日(YYYY/MM/DD)</dt>
-	<dd><span th:text="${session.userbirth}"></span></dd>
+	<dd><span th:text="${newAccountRequest.userbirth}"></span></dd>
 	<dt>血液型</dt>
-	<dd><span th:text="${session.userbtype}"></span></dd>
+	<dd><span th:text="${newAccountRequest.userbtype}"></span></dd>
 	<dt>電話番号(ハイフンなし)</dt>
-	<dd><span th:text="${session.usertel}"></span></dd>
+	<dd><span th:text="${newAccountRequest.usertel}"></span></dd>
 	<dt>郵便番号</dt>
-	<dd><span th:text="${session.yubin}"></span></dd>
+	<dd><span th:text="${newAccountRequest.yubin}"></span></dd>
 	<dt>住所(県)</dt>
-	<dd><span th:text="${session.useradress1}"></span></dd>
+	<dd><span th:text="${newAccountRequest.useradress1}"></span></dd>
 	<dt>住所(県以下)</dt>
-	<dd><span th:text="${session.useradress2}"></span></dd>
+	<dd><span th:text="${newAccountRequest.useradress2}"></span></dd>
 </dl>
+	<input type="hidden" name="username1" th:value="${newAccountRequest.username1}">
+	<input type="hidden" name="username2" th:value="${newAccountRequest.username2}">
+	<input type="hidden" name="userfuri1" th:value="${newAccountRequest.userfuri1}">
+	<input type="hidden" name="userfuri2" th:value="${newAccountRequest.userfuri2}">
+	<input type="hidden" name="usermail" th:value="${newAccountRequest.usermail}">
+	<input type="hidden" name="userpass" th:value="${newAccountRequest.userpass}">
+	<input type="hidden" name="userbirth" th:value="${newAccountRequest.userbirth}">
+	<input type="hidden" name="userbtype" th:value="${newAccountRequest.userbtype}">
+	<input type="hidden" name="usertel" th:value="${newAccountRequest.usertel}">
+	<input type="hidden" name="yubin" th:value="${newAccountRequest.yubin}">
+	<input type="hidden" name="useradress1" th:value="${newAccountRequest.useradress1}">
+	<input type="hidden" name="useradress2" th:value="${newAccountRequest.useradress2}">
 <button onclick="history.back()">戻る</button>
 <input type="submit" value="次へ">
 </form>

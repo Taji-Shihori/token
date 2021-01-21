@@ -9,11 +9,12 @@
 	<div id="back-image"></div>
 	
 	<div id="sighok">
-	<p>登録が完了しました。</p>
-	<p>ようこそ</p>
+	<p>登録が完了しました。</p><br>
+	<div id="wel">ようこそ、
 	<span th:text="${session.account.username1}"></span>
 	<span th:text="${session.account.username2}"></span>
 	さん。
+	</div>
 	<a th:href="@{/}">会員ページへ</a><br>
 	<a th:href="@{/}">TOPへ</a>
 	</div>

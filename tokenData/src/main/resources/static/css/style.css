@@ -140,27 +140,10 @@ a {
   margin: auto;
   text-align: center;
 }
-/* morelinkボタンのスタイル（お好みで） */
-.morelink{
-    display:block;
-    max-width:240px;
-    margin:20px auto;
-    padding:10px 20px;
-    background:#ff9900;
-    border:2px solid #fff;
-    color:#fff;
-    text-align:center;
-    border-radius:5px;
-    position:absolute;
-    bottom: 100;
-  	right: 0;
-  	left: 0;
-}
-.morelink:hover{
+/* btnMoreボタンのスタイル（お好みで） */
+#btnMore:hover{
     cursor:pointer;
-    border:2px solid #ff9900;
-    background:#fff;
-    color:#ff9900;
+    color:#FF9900;
 }
 /*ログイン画面の設定*/
 #login{
@@ -178,7 +161,7 @@ a {
   	float:left;
   	clear:both;
 }
-#login form dl dd{
+#login rgb(0, 128, 255)128, 255) dd{
   	padding:10px 0;
 }
 

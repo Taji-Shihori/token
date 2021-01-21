@@ -17,11 +17,9 @@
 				
 		<nav id="log">
 		<div id="welcome"> ようこそ、
-		<div th:object="${session.account}">
-		<p th:text="*{username1}"></p>
-		<p th:text="*{username2}"></p>
+		<span th:text="${session.account.username1}"></span>
+		<span th:text="${session.account.username2}"></span>
 		さん。
-		</div>
 		</div>
 			<ul>
 				<li><a th:href="@{/top}">TOP</a></li>

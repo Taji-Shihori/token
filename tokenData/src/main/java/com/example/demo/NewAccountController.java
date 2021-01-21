@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +21,9 @@ public class NewAccountController {
 	NewAccountService newAccountService;
 	
 	@Autowired
+	private NewAccountRepository newAccountRepository;
+	
+	@Autowired
 	HttpSession session;
 	
 	@RequestMapping(value="/newaccount", method=RequestMethod.GET)
@@ -28,7 +33,7 @@ public class NewAccountController {
 	}
 	
 	@RequestMapping(value="/newAccountTest", method=RequestMethod.POST)
-	public String newAccountTest(@Validated NewAccountRequest newAccountRequest, BindingResult result, HttpServletRequest request, Model model) {
+	public String newAccountTest(@Validated @ModelAttribute NewAccountRequest newAccountRequest, BindingResult result, HttpServletRequest request, Model model) {
 		String username1 = request.getParameter("username1");
 		String username2 = request.getParameter("username2");
 		String userfuri1 = request.getParameter("userfuri1");
@@ -58,26 +63,30 @@ public class NewAccountController {
 			return "newaccount";
 			}
 		
-		session.setAttribute("username1", username1);
-		session.setAttribute("username2", username2);
-		session.setAttribute("userfuri1", userfuri1);
-		session.setAttribute("userfuri2", userfuri2);
-		session.setAttribute("usermail", usermail);
-		session.setAttribute("userpass", userpass);
-		session.setAttribute("userbirth", userbirth);
-		session.setAttribute("userbtype", userbtype);
-		session.setAttribute("usertel", usertel);
-		session.setAttribute("yubin", yubin);
-		session.setAttribute("useradress1", useradress1);
-		session.setAttribute("useradress2", useradress2);
+		request.setAttribute("username1", username1);
+		request.setAttribute("username2", username2);
+		request.setAttribute("userfuri1", userfuri1);
+		request.setAttribute("userfuri2", userfuri2);
+		request.setAttribute("usermail", usermail);
+		request.setAttribute("userpass", userpass);
+		request.setAttribute("userbirth", userbirth);
+		request.setAttribute("userbtype", userbtype);
+		request.setAttribute("usertel", usertel);
+		request.setAttribute("yubin", yubin);
+		request.setAttribute("useradress1", useradress1);
+		request.setAttribute("useradress2", useradress2);
 		return "newAccountTest";
 		
 	}
 	
 	@RequestMapping(value="/newAccountok", method=RequestMethod.POST)
-	public String create(@ModelAttribute NewAccountRequest newAccountRequest, Model model) {
+	public String create(@ModelAttribute NewAccountRequest newAccountRequest, HttpServletRequest request, Model model) {
 		newAccountService.create(newAccountRequest);
 		System.out.println(newAccountRequest);
+		String usermail = request.getParameter("usermail");
+		Account account = newAccountRepository.findByUsermail(usermail);
+		session.setAttribute("account", account);
+		System.out.println(account);
 		return "newAccountok";
 	}
 
