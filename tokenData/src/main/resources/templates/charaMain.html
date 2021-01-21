@@ -23,7 +23,7 @@ $(function(){
 	setMore.after('<div id="nowLoading">' + loadTxt + '</div>');
 	
 	$.ajax({
-		url: "/jsonUse",
+		url: "jsonUse",
 		type: "GET",
 		contentType: "application/json; charset=UTF-8",
 		dataType: "json",
@@ -80,7 +80,7 @@ $(function(){
 	
 	setMore.click(function(){
 		$.ajax({
-			url: "/jsonUse",
+			url: "jsonUse",
 			type: "GET",
 			contentType: "application/json; charset=UTF-8",
 			dataType: "json",
